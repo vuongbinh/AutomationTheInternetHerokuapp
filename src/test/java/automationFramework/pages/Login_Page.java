@@ -1,21 +1,22 @@
-package pages;
+package automationFramework.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class LoginPage extends BasePage {
-    By loginButton = By.xpath("//*[contains(text(),' Login')]");
-    By username = By.id("username");
-    By password = By.id("password");
-    String extend_URL = "/login";
+public class Login_Page extends Page_Controller {
 
-    public LoginPage(WebDriver driver) {
+    By loginButton = By.id("login");
+    By username = By.id("userName");
+    By password = By.id("password");
+    By logoutBTN = By.xpath("//*[.='Log out']");
+
+    public Login_Page(WebDriver driver) {
         super(driver);
     }
 
     @Override
     public void open() {
-        driver.get(base_url + extend_URL);
+        driver.get("https://demoqa.com/login");
     }
 
     public void login(String usr, String pwd) {
@@ -23,4 +24,9 @@ public class LoginPage extends BasePage {
         driver.findElement(password).sendKeys(pwd);
         driver.findElement(loginButton).click();
     }
+
+    public void logout() {
+        driver.findElement(logoutBTN).click();
+    }
+
 }
