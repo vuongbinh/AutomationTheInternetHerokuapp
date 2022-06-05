@@ -4,11 +4,14 @@ import java.io.IOException;
 import java.lang.reflect.Method;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
+
+import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.Reporter;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import automationFramework.pages.Login_Page;
@@ -45,13 +48,12 @@ public class testLogin extends Test_Controller {
                 if (method.getName() == "verify_LoginSuccess") {
                         Sheet excelSheet = file.readFile("src/main/resources", "data_LoginTest.xlsx",
                                         "valid_Account");
-                        getDataFromFile(excelSheet);
-                } else if (method.getName() == "verify_LoginError") {
+                                        Reporter.log("TEST case passed");
+                        return getDataFromFile(excelSheet);
+                } else {
                         Sheet excelSheet = file.readFile("src/main/resources", "data_LoginTest.xlsx",
                                         "invalid_Account");
-                        getDataFromFile(excelSheet);
+                        return getDataFromFile(excelSheet);
                 }
-                return null;
         }
-
 }
