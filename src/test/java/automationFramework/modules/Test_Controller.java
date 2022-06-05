@@ -31,7 +31,7 @@ public class Test_Controller {
         driver.close();
     }
 
-    protected static Object getDataFromFile(Sheet excelSheet) {
+    protected static Object[][] getDataFromFile(Sheet excelSheet) {
         int rowCOUNT = excelSheet.getLastRowNum() - excelSheet.getFirstRowNum();
         Object[][] object = new Object[rowCOUNT][2];
         for (int i = 0; i < rowCOUNT; i++) {
