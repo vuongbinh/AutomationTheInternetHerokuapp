@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.Reporter;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import automationFramework.pages.Login_Page;
@@ -30,6 +31,9 @@ public class testLogin extends Test_Controller {
                 login_Page.logout();
         }
 
+        @BeforeTest
+        void beforeTest(){
+        }
         // Verify login error msg
         @Test(dataProvider = "hybridDATA")
         public void verify_LoginError(String usr, String pwd) {
