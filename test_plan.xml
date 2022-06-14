@@ -1,0 +1,22 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="ToolsQA smoke test" verbose="1">
+    <test name="Chrome - Smoke Test" >
+        <parameter name="browserName" value="Chrome"></parameter>
+        <classes>
+            <class name="automationFramework.modules.testLogin" />
+        </classes>
+    </test>
+    <test name="Firefox - Smoke Test" >
+        <parameter name="browserName" value="Firefox"></parameter>
+        <classes>
+            <class name="automationFramework.modules.testLogin" />
+        </classes>
+    </test>
+    <test name="Edge - Smoke Test" >
+        <parameter name="browserName" value="Edge"></parameter>
+        <classes>
+            <class name="automationFramework.modules.testLogin" />
+        </classes>
+    </test>
+</suite>
